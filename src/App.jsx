@@ -1,106 +1,57 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { motion } from "framer-motion";
-import { Handshake, FileText, Megaphone, Users } from "lucide-react";
+import React from 'react'
 
-export default function Desenrolai() {
+export default function App() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white to-lime-50 text-gray-800">
-      <div className="p-6 max-w-5xl mx-auto">
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold text-lime-600 mb-6"
-        >
-          Desenrolaí!
-        </motion.h1>
+    <div style={{ fontFamily: 'Arial, sans-serif', background: '#f9f9f9', padding: '20px' }}>
+      <header style={{ backgroundColor: '#00c853', padding: '20px', color: 'white', borderRadius: '10px' }}>
+        <h1>Desenrolaí!</h1>
+        <p>Facilitando acordos, petições e acesso à justiça</p>
+      </header>
 
-        <Tabs defaultValue="reclamacao">
-          <TabsList className="grid grid-cols-4 mb-6 bg-white shadow rounded-xl">
-            <TabsTrigger value="reclamacao">
-              <Megaphone className="inline mr-2" /> Reclamação
-            </TabsTrigger>
-            <TabsTrigger value="acordo">
-              <Handshake className="inline mr-2" /> Acordo
-            </TabsTrigger>
-            <TabsTrigger value="peticao">
-              <FileText className="inline mr-2" /> Petição
-            </TabsTrigger>
-            <TabsTrigger value="advogados">
-              <Users className="inline mr-2" /> Advogados
-            </TabsTrigger>
-          </TabsList>
+      <section style={{ marginTop: '30px' }}>
+        <h2>Abrir uma Reclamação Extrajudicial</h2>
+        <p>Notifique empresas gratuitamente antes de entrar na justiça.</p>
+        <button style={btnStyle}>Iniciar Reclamação</button>
+      </section>
 
-          <TabsContent value="reclamacao">
-            <Card className="bg-white">
-              <CardContent className="p-6">
-                <h2 className="text-xl font-semibold mb-4">Registrar Reclamação Extrajudicial</h2>
-                <div className="grid gap-4">
-                  <Input placeholder="Seu nome" />
-                  <Input placeholder="Empresa reclamada" />
-                  <Textarea placeholder="Descreva seu problema" rows={4} />
-                  <Button className="bg-lime-600 hover:bg-lime-700 text-white">Enviar Reclamação</Button>
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
+      <section style={{ marginTop: '30px' }}>
+        <h2>Fazer um Acordo Direto</h2>
+        <p>Negocie dívidas e pendências com validade legal.</p>
+        <button style={btnStyle}>Simular Acordo</button>
+      </section>
 
-          <TabsContent value="acordo">
-            <Card className="bg-white">
-              <CardContent className="p-6">
-                <h2 className="text-xl font-semibold mb-4">Iniciar Negociação de Acordo</h2>
-                <div className="grid gap-4">
-                  <Input placeholder="Nome completo" />
-                  <Input placeholder="E-mail" />
-                  <Input placeholder="Empresa envolvida" />
-                  <Input placeholder="Valor aproximado da dívida" />
-                  <Textarea placeholder="Explique a situação" rows={4} />
-                  <Button className="bg-lime-600 hover:bg-lime-700 text-white">Solicitar Acordo</Button>
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
+      <section style={{ marginTop: '30px' }}>
+        <h2>Gerar Petição Inicial com IA</h2>
+        <p>Conte sua história e receba uma petição pronta para imprimir.</p>
+        <button style={btnStyle}>Criar Petição</button>
+      </section>
 
-          <TabsContent value="peticao">
-            <Card className="bg-white">
-              <CardContent className="p-6">
-                <h2 className="text-xl font-semibold mb-4">Criar Petição Inicial com IA</h2>
-                <div className="grid gap-4">
-                  <Input placeholder="Seu nome" />
-                  <Input placeholder="E-mail para envio" />
-                  <Textarea placeholder="Descreva seu problema" rows={4} />
-                  <Button className="bg-lime-600 hover:bg-lime-700 text-white">Gerar Petição</Button>
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
+      <section style={{ marginTop: '30px' }}>
+        <h2>Encontrar Advogados para Audiência</h2>
+        <p>Conecte-se a profissionais disponíveis para audiências presenciais ou virtuais.</p>
+        <button style={btnStyle}>Buscar Advogado</button>
+      </section>
 
-          <TabsContent value="advogados">
-            <Card className="bg-white">
-              <CardContent className="p-6">
-                <h2 className="text-xl font-semibold mb-4">Encontrar Advogados e Escritórios</h2>
-                <div className="grid gap-4">
-                  <Input placeholder="Buscar por cidade, estado ou especialidade" />
-                  <Button className="bg-lime-600 hover:bg-lime-700 text-white">Buscar</Button>
-                  <div className="text-sm text-gray-500 mt-4">
-                    Listagem de advogados cadastrados será exibida aqui com opção de contato.
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
-        </Tabs>
+      <section style={{ marginTop: '30px' }}>
+        <h2>Lista de Escritórios e Advogados</h2>
+        <p>Consulte advogados cadastrados para representação e consultas.</p>
+        <button style={btnStyle}>Ver Lista</button>
+      </section>
 
-        <footer className="text-center text-sm text-gray-500 mt-12">
-          <p>© 2025 Desenrolaí! Todos os direitos reservados.</p>
-          <p className="mt-2">
-            <a href="#" className="underline">Quem Somos</a> · <a href="#" className="underline">LGPD</a> · <a href="#" className="underline">Termos</a> · <a href="#" className="underline">Contato</a>
-          </p>
-        </footer>
-      </div>
-    </main>
-  );
+      <footer style={{ marginTop: '40px', fontSize: '14px', color: '#777' }}>
+        <p>© {new Date().getFullYear()} Desenrolaí. Todos os direitos reservados.</p>
+        <p><a href="#" style={{ color: '#00c853' }}>Quem somos</a> | <a href="#" style={{ color: '#00c853' }}>Termos de uso</a> | <a href="#" style={{ color: '#00c853' }}>Política de privacidade</a></p>
+      </footer>
+    </div>
+  )
+}
+
+const btnStyle = {
+  marginTop: '10px',
+  padding: '10px 20px',
+  backgroundColor: '#00c853',
+  color: '#fff',
+  border: 'none',
+  borderRadius: '6px',
+  cursor: 'pointer'
 }
